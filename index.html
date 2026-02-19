@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pankaj Prasad | Portfolio</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        slate: {
+                            950: '#020617', // Deep Space Dark
+                        },
+                        cyan: {
+                            400: '#22d3ee',
+                            500: '#06b6d4',
+                        },
+                        fuchsia: {
+                            500: '#d946ef',
+                        }
+                    },
+                    animation: {
+                        blob: "blob 7s infinite",
+                        'spin-slow': 'spin 12s linear infinite',
+                    },
+                    keyframes: {
+                        blob: {
+                            "0%": { transform: "translate(0px, 0px) scale(1)" },
+                            "33%": { transform: "translate(30px, -50px) scale(1.1)" },
+                            "66%": { transform: "translate(-20px, 20px) scale(0.9)" },
+                            "100%": { transform: "translate(0px, 0px) scale(1)" },
+                        },
+                    },
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body class="bg-slate-950 text-slate-200 antialiased overflow-x-hidden selection:bg-cyan-500 selection:text-black">
+
+    <!-- Navigation (Simple Floating) -->
+    <nav class="fixed top-0 w-full z-50 px-6 py-4 flex justify-between items-center glass-card border-b border-white/5">
+        <div class="text-xl font-bold tracking-tighter text-white"> <span class="text-cyan-400">P</span>ankaj.</div>
+        <div class="hidden md:flex gap-8 text-sm font-medium">
+            <a href="#about" class="hover:text-cyan-400 transition-colors">About</a>
+            <a href="#experience" class="hover:text-cyan-400 transition-colors">Experience</a>
+            <a href="#projects" class="hover:text-cyan-400 transition-colors">Projects</a>
+            <a href="#skills" class="hover:text-cyan-400 transition-colors">Skills</a>
+        </div>
+        <a href="#contact"
+            class="px-5 py-2 rounded-full border border-cyan-500/30 text-cyan-400 hover:bg-cyan-500/10 transition-all text-sm font-bold">
+            Hire Me
+        </a>
+    </nav>
+
+    <!-- 1. Hero Section -->
+    <section id="hero" class="relative h-screen flex flex-col items-center justify-center overflow-hidden">
+        <!-- Floating Background Blobs -->
+        <div class="absolute inset-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
+            <div
+                class="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/20 rounded-full mix-blend-screen filter blur-3xl opacity-30 animate-blob">
+            </div>
+            <div
+                class="absolute top-1/3 right-1/4 w-96 h-96 bg-fuchsia-500/20 rounded-full mix-blend-screen filter blur-3xl opacity-30 animate-blob animation-delay-2000">
+            </div>
+            <div
+                class="absolute -bottom-32 left-1/3 w-96 h-96 bg-purple-500/20 rounded-full mix-blend-screen filter blur-3xl opacity-30 animate-blob animation-delay-4000">
+            </div>
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10 flex flex-col items-center text-center">
+            <!-- Profile Image Container -->
+            <div class="relative group mb-8">
+                <div
+                    class="absolute -inset-1 bg-gradient-to-r from-cyan-400 to-fuchsia-600 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt">
+                </div>
+                <div id="profile-container"
+                    class="relative w-48 h-48 rounded-full ring-4 ring-cyan-400/50 shadow-[0_0_50px_rgba(34,211,238,0.5)] overflow-hidden bg-slate-900 flex items-center justify-center">
+                    <img src="./assets/images/profile.jpg" alt="Pankaj Prasad"
+                        class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity">
+                    <!-- Fallback -->
+                    <div class="absolute inset-0 flex items-center justify-center pointer-events-none"
+                        id="img-fallback">
+                        <span class="text-xs text-cyan-500/50 font-mono">-//-</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Typography -->
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 tracking-tight">
+                <span
+                    class="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-blue-500 to-fuchsia-600 animate-gradient-x">
+                    Pankaj Prasad
+                </span>
+            </h1>
+
+            <div class="h-8 md:h-10 mb-8 font-mono text-lg md:text-2xl text-cyan-200">
+                <span id="typewriter"></span><span class="animate-pulse">|</span>
+            </div>
+
+            <!-- Use Gap-4 for separation -->
+            <div class="flex gap-4 opacity-0 transform translate-y-4" id="hero-buttons">
+                <!-- Primary: Hire Me -->
+                <a href="#projects"
+                    class="group relative px-8 py-3 bg-gradient-to-r from-cyan-400 to-blue-600 text-black font-bold rounded-full overflow-hidden transition-all hover:scale-105 shadow-[0_0_20px_rgba(34,211,238,0.4)]">
+                    <span class="relative z-10">View Works</span>
+                    <div
+                        class="absolute inset-0 h-full w-full bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-300">
+                    </div>
+                </a>
+
+                <!-- Secondary: Download CV -->
+                <a href="./assets/docs/resume.pdf" download
+                    class="px-8 py-3 border-2 border-cyan-500 text-cyan-400 rounded-full font-bold hover:bg-cyan-500 hover:text-black transition-all duration-300">
+                    View CV <i class="fas fa-download ml-2"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <a href="#about"
+            class="absolute bottom-10 animate-bounce text-slate-500 hover:text-cyan-400 transition-colors cursor-pointer">
+            <i class="fas fa-chevron-down text-xl"></i>
+        </a>
+    </section>
+
+    <!-- NEW: About Section -->
+    <section id="about" class="py-24 relative bg-slate-950/50">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- Left: Text Content -->
+                <div class="order-2 md:order-1 space-y-6 opacity-0 translate-y-8" id="about-text">
+                    <h2 class="text-4xl font-bold mb-6"><span class="text-white">Beyond the Code</span><span
+                            class="text-fuchsia-500">.</span></h2>
+
+                    <p class="text-slate-300 text-lg leading-relaxed">
+                        I am a <span class="text-cyan-400 font-semibold">B.Sc. IT student</span> at
+                        <span class="text-white">Smt. C. H. M. College (Mumbai University)</span>,
+                        blending academic theory with real-world application.
+                    </p>
+
+                    <p class="text-slate-400 leading-relaxed">
+                        Currently bridging the gap between design and functionality as a
+                        <span class="text-white font-medium">Software Engineer Intern at Yuga Yatra Retail</span>.
+                    </p>
+
+                    <p class="text-slate-400 leading-relaxed">
+                        My core strength lies in <span class="text-fuchsia-400 font-medium">Problem Solving</span> and
+                        <span class="text-fuchsia-400 font-medium">Analytical Thinking</span>, applying logic to build
+                        seamless web experiences.
+                    </p>
+                </div>
+
+                <!-- Right: Glass Card & Visual -->
+                <div class="order-1 md:order-2 relative opacity-0 translate-x-8" id="about-visual">
+                    <!-- Absolute glow backdrop -->
+                    <div
+                        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-fuchsia-500/20 rounded-full blur-3xl pointer-events-none">
+                    </div>
+
+                    <div
+                        class="glass-card p-8 rounded-2xl relative z-10 border border-white/10 hover:border-cyan-500/30 transition-all duration-500 hover:-translate-y-2">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div
+                                class="w-12 h-12 rounded-full bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center text-black">
+                                <i class="fas fa-brain text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white">Soft Skills</h3>
+                        </div>
+
+                        <ul class="space-y-4">
+                            <li class="flex items-center gap-3 text-slate-300">
+                                <i class="fas fa-check-circle text-cyan-400"></i> Willingness to Learn
+                            </li>
+                            <li class="flex items-center gap-3 text-slate-300">
+                                <i class="fas fa-check-circle text-cyan-400"></i> Positive Attitude
+                            </li>
+                            <li class="flex items-center gap-3 text-slate-300">
+                                <i class="fas fa-check-circle text-cyan-400"></i> Teamwork & Collaboration
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Experience Timeline -->
+    <section id="experience" class="py-24 relative bg-slate-900/10">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <h2 class="text-4xl font-bold text-center mb-16"><span class="text-white">Experience</span><span
+                    class="text-cyan-400">.</span></h2>
+
+            <div class="relative space-y-12">
+                <!-- Vertical Config Line -->
+                <div
+                    class="absolute left-4 md:left-[8.5rem] top-0 bottom-0 w-0.5 bg-gradient-to-b from-cyan-500 via-fuchsia-500 to-transparent opacity-30">
+                </div>
+
+                <!-- Item 1 -->
+                <div
+                    class="relative flex flex-col md:flex-row gap-8 group experience-card opacity-0 translate-x-[-50px]">
+                    <div class="md:w-32 pt-1 md:text-right flex-shrink-0">
+                        <span class="text-cyan-400 font-mono text-sm block">Feb 2026 - Present</span>
+                    </div>
+
+                    <!-- Dot -->
+                    <div
+                        class="absolute left-4 md:left-[8.5rem] w-4 h-4 rounded-full bg-slate-950 border-2 border-cyan-500 -translate-x-[7px] z-10 group-hover:bg-cyan-500 group-hover:shadow-[0_0_10px_rgba(34,211,238,1)] transition-all">
+                    </div>
+
+                    <div class="flex-1 pl-12 md:pl-8">
+                        <div
+                            class="py-4 pl-6 pr-6 rounded-2xl glass-card border-l-4 border-cyan-500 hover:bg-slate-900 transition-all duration-300 transform group-hover:-translate-y-1 group-hover:shadow-lg group-hover:shadow-cyan-500/5">
+                            <h3 class="text-2xl font-bold text-white mb-1">Software Engineer Intern</h3>
+                            <p class="text-fuchsia-400 font-medium mb-3">Yuga Yatra Retail (OPC) Pvt. Ltd.</p>
+                            <ul class="list-none space-y-3 text-sm text-slate-300 mt-4">
+                                <li class="flex items-start group/item">
+                                    <i class="fas fa-chevron-right text-cyan-400 text-xs mt-1.5 mr-3 flex-shrink-0"></i>
+                                    <span
+                                        class="group-hover/item:text-white transition-colors duration-300 leading-relaxed">Developed
+                                        websites and applications using AI-assisted tools, Firebase Studio, and modern
+                                        development practices.</span>
+                                </li>
+                                <li class="flex items-start group/item">
+                                    <i class="fas fa-chevron-right text-cyan-400 text-xs mt-1.5 mr-3 flex-shrink-0"></i>
+                                    <span
+                                        class="group-hover/item:text-white transition-colors duration-300 leading-relaxed">Assisted
+                                        in designing digital creatives and UI elements using Canva.</span>
+                                </li>
+                                <li class="flex items-start group/item">
+                                    <i class="fas fa-chevron-right text-cyan-400 text-xs mt-1.5 mr-3 flex-shrink-0"></i>
+                                    <span
+                                        class="group-hover/item:text-white transition-colors duration-300 leading-relaxed">Contributed
+                                        to live freelancing projects through platforms like Upwork, focusing on client
+                                        requirements and project delivery.</span>
+                                </li>
+                                <li class="flex items-start group/item">
+                                    <i class="fas fa-chevron-right text-cyan-400 text-xs mt-1.5 mr-3 flex-shrink-0"></i>
+                                    <span
+                                        class="group-hover/item:text-white transition-colors duration-300 leading-relaxed">Gained
+                                        exposure to e-commerce seller portals, including Amazon and Flipkart
+                                        operations.</span>
+                                </li>
+                                <li class="flex items-start group/item">
+                                    <i class="fas fa-chevron-right text-cyan-400 text-xs mt-1.5 mr-3 flex-shrink-0"></i>
+                                    <span
+                                        class="group-hover/item:text-white transition-colors duration-300 leading-relaxed">Collaborated
+                                        with team members using Google Workspace, improving teamwork and professional
+                                        communication skills.</span>
+                                </li>
+                                <li class="flex items-start group/item">
+                                    <i class="fas fa-chevron-right text-cyan-400 text-xs mt-1.5 mr-3 flex-shrink-0"></i>
+                                    <span
+                                        class="group-hover/item:text-white transition-colors duration-300 leading-relaxed">Worked
+                                        on live projects that strengthened practical knowledge of web development and
+                                        industry workflows.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div
+                    class="relative flex flex-col md:flex-row gap-8 group experience-card opacity-0 translate-x-[-50px]">
+                    <div class="md:w-32 pt-1 md:text-right flex-shrink-0">
+                        <span class="text-cyan-400 font-mono text-sm block">Ongoing</span>
+                    </div>
+
+                    <!-- Dot -->
+                    <div
+                        class="absolute left-4 md:left-[8.5rem] w-4 h-4 rounded-full bg-slate-950 border-2 border-fuchsia-500 -translate-x-[7px] z-10 group-hover:bg-fuchsia-500 group-hover:shadow-[0_0_10px_rgba(217,70,239,1)] transition-all">
+                    </div>
+
+                    <div class="flex-1 pl-12 md:pl-8">
+                        <div
+                            class="py-4 pl-6 pr-6 rounded-2xl glass-card border-l-4 border-fuchsia-500 hover:bg-slate-900 transition-all duration-500 transform group-hover:-translate-y-1 group-hover:shadow-lg group-hover:shadow-fuchsia-500/5">
+                            <h3 class="text-2xl font-bold text-white mb-1">Freelance Web Developer & E-commerce
+                                Specialist</h3>
+                            <p class="text-cyan-400 font-medium mb-3">Upwork & Independent</p>
+
+                            <ul class="list-none space-y-2 mt-4 text-sm text-slate-300">
+                                <li class="flex items-start group/item">
+                                    <i
+                                        class="fas fa-chevron-right text-fuchsia-500 text-xs mt-1.5 mr-2 flex-shrink-0"></i>
+                                    <span
+                                        class="group-hover/item:text-white transition-colors duration-300 leading-relaxed">Successfully
+                                        delivered live freelancing projects via platforms like Upwork, ensuring strict
+                                        adherence to client requirements and project delivery.</span>
+                                </li>
+                                <li class="flex items-start group/item">
+                                    <i
+                                        class="fas fa-chevron-right text-fuchsia-500 text-xs mt-1.5 mr-2 flex-shrink-0"></i>
+                                    <span
+                                        class="group-hover/item:text-white transition-colors duration-300 leading-relaxed">Managed
+                                        e-commerce seller portal operations, gaining hands-on exposure to workflows on
+                                        major platforms like Amazon, Meesho and Flipkart.</span>
+                                </li>
+                                <li class="flex items-start group/item">
+                                    <i
+                                        class="fas fa-chevron-right text-fuchsia-500 text-xs mt-1.5 mr-2 flex-shrink-0"></i>
+                                    <span
+                                        class="group-hover/item:text-white transition-colors duration-300 leading-relaxed">Collaborated
+                                        directly with clients to translate business needs into functional web solutions
+                                        and digital creatives.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Featured Project (TuneHub) -->
+    <section id="projects" class="py-24 relative overflow-hidden bg-gradient-to-b from-slate-950 to-slate-900/50">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <h2 class="text-4xl font-bold text-center mb-20"><span class="text-white">Featured Work</span><span
+                    class="text-fuchsia-500">.</span></h2>
+
+            <div class="perspective-1000 flex justify-center">
+                <div id="tunehub-card"
+                    class="relative group w-full max-w-5xl transform-style-3d transition-transform duration-700 ease-out hover:rotate-1 hover:scale-[1.01]">
+
+                    <div
+                        class="relative bg-gradient-to-br from-slate-900 to-slate-800 p-8 md:p-12 rounded-3xl shadow-2xl shadow-cyan-500/10 border border-white/10 overflow-hidden">
+                        <!-- Decorative bg elements -->
+                        <div
+                            class="absolute top-0 right-0 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none">
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-12 items-center relative z-10">
+                            <!-- Content -->
+                            <div class="space-y-6">
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span
+                                        class="px-3 py-1 rounded-full text-xs font-mono bg-cyan-950/50 text-cyan-300 border border-cyan-500/30">HTML5</span>
+                                    <span
+                                        class="px-3 py-1 rounded-full text-xs font-mono bg-cyan-950/50 text-cyan-300 border border-cyan-500/30">CSS3</span>
+                                    <span
+                                        class="px-3 py-1 rounded-full text-xs font-mono bg-cyan-950/50 text-cyan-300 border border-cyan-500/30">JavaScript</span>
+                                    <span
+                                        class="px-3 py-1 rounded-full text-xs font-mono bg-cyan-950/50 text-cyan-300 border border-cyan-500/30">PHP</span>
+                                    <span
+                                        class="px-3 py-1 rounded-full text-xs font-mono bg-cyan-950/50 text-cyan-300 border border-cyan-500/30">MySQL</span>
+                                    <span
+                                        class="px-3 py-1 rounded-full text-xs font-mono bg-cyan-950/50 text-cyan-300 border border-cyan-500/30">XAMPP</span>
+                                </div>
+
+                                <h3
+                                    class="text-3xl md:text-4xl font-bold text-white group-hover:text-cyan-400 transition-colors">
+                                    TuneHub : Digital Musical Instruments Store (Final Year Project)</h3>
+
+                                <ul class="list-none space-y-3 mt-6 text-slate-300 text-sm leading-relaxed">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-cyan-400 mt-1 mr-3 flex-shrink-0"></i>
+                                        <span>Developed a full-stack e-commerce web application using HTML, CSS,
+                                            JavaScript, PHP, and MySQL.</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-cyan-400 mt-1 mr-3 flex-shrink-0"></i>
+                                        <span>Implemented category-based product listing, user registration/login,
+                                            shopping cart, and order management.</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-cyan-400 mt-1 mr-3 flex-shrink-0"></i>
+                                        <span>Designed an admin panel to manage products, categories, users, and orders
+                                            efficiently.</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-cyan-400 mt-1 mr-3 flex-shrink-0"></i>
+                                        <span>Integrated database operations and validations on a XAMPP server to ensure
+                                            smooth data handling.</span>
+                                    </li>
+                                </ul>
+
+                                <div class="pt-6">
+                                    <span
+                                        class="inline-flex items-center gap-2 text-cyan-400 font-bold hover:text-white transition-colors border-b border-cyan-400/30 hover:border-cyan-400 pb-1 cursor-pointer">
+                                        View Case Study (Coming Soon) <i
+                                            class="fas fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <!-- 5. Logo Container (New Visual) -->
+                            <div class="flex justify-center items-center">
+                                <div
+                                    class="w-40 h-40 mx-auto md:w-52 md:h-52 bg-slate-950/80 rounded-2xl border border-cyan-500/40 shadow-[0_0_30px_rgba(0,243,255,0.15)] flex items-center justify-center p-6 group-hover:shadow-[0_0_50px_rgba(0,243,255,0.3)] transition-all duration-500 relative">
+
+                                    <!-- TuneHub Logo (Add tunehub_logo.png here) -->
+                                    <img src="./assets/images/tunehub-logo.png" alt="TuneHub Logo"
+                                        class="w-full h-full object-contain drop-shadow-md scale-95 group-hover:scale-105 transition-transform duration-500">
+
+                                    <!-- Glow effect behind logo -->
+                                    <div
+                                        class="absolute inset-0 bg-cyan-500/20 blur-xl rounded-full -z-10 opacity-50 group-hover:opacity-80 transition-opacity">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Skills Grid -->
+    <section id="skills" class="py-24 relative bg-slate-950">
+        <div class="container mx-auto px-6 max-w-5xl">
+            <h2 class="text-4xl font-bold text-center mb-20"><span class="text-white">Technical Arsenal</span><span
+                    class="text-cyan-400">.</span></h2>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6" id="skills-grid">
+                <!-- Skill Card Template -->
+                <div
+                    class="skill-card group bg-slate-900/50 p-6 rounded-2xl text-center border border-white/5 hover:bg-slate-800 hover:border-cyan-500/40 hover:shadow-[0_0_20px_rgba(34,211,238,0.15)] transition-all duration-300 transform hover:-translate-y-2 cursor-default opacity-0 translate-y-8">
+                    <i
+                        class="fab fa-html5 text-4xl text-orange-500 mb-4 group-hover:scale-110 transition-transform duration-300"></i>
+                    <h4 class="text-slate-300 font-medium group-hover:text-white">HTML5</h4>
+                </div>
+
+                <div
+                    class="skill-card group bg-slate-900/50 p-6 rounded-2xl text-center border border-white/5 hover:bg-slate-800 hover:border-cyan-500/40 hover:shadow-[0_0_20px_rgba(34,211,238,0.15)] transition-all duration-300 transform hover:-translate-y-2 cursor-default opacity-0 translate-y-8">
+                    <i
+                        class="fab fa-css3-alt text-4xl text-blue-500 mb-4 group-hover:scale-110 transition-transform duration-300"></i>
+                    <h4 class="text-slate-300 font-medium group-hover:text-white">CSS3</h4>
+                </div>
+
+                <div
+                    class="skill-card group bg-slate-900/50 p-6 rounded-2xl text-center border border-white/5 hover:bg-slate-800 hover:border-cyan-500/40 hover:shadow-[0_0_20px_rgba(34,211,238,0.15)] transition-all duration-300 transform hover:-translate-y-2 cursor-default opacity-0 translate-y-8">
+                    <i
+                        class="fab fa-js text-4xl text-yellow-500 mb-4 group-hover:scale-110 transition-transform duration-300"></i>
+                    <h4 class="text-slate-300 font-medium group-hover:text-white">JavaScript</h4>
+                </div>
+
+                <div
+                    class="skill-card group bg-slate-900/50 p-6 rounded-2xl text-center border border-white/5 hover:bg-slate-800 hover:border-cyan-500/40 hover:shadow-[0_0_20px_rgba(34,211,238,0.15)] transition-all duration-300 transform hover:-translate-y-2 cursor-default opacity-0 translate-y-8">
+                    <i
+                        class="fab fa-java text-4xl text-red-500 mb-4 group-hover:scale-110 transition-transform duration-300"></i>
+                    <h4 class="text-slate-300 font-medium group-hover:text-white">Java</h4>
+                </div>
+
+                <div
+                    class="skill-card group bg-slate-900/50 p-6 rounded-2xl text-center border border-white/5 hover:bg-slate-800 hover:border-cyan-500/40 hover:shadow-[0_0_20px_rgba(34,211,238,0.15)] transition-all duration-300 transform hover:-translate-y-2 cursor-default opacity-0 translate-y-8">
+                    <i
+                        class="fas fa-database text-4xl text-cyan-500 mb-4 group-hover:scale-110 transition-transform duration-300"></i>
+                    <h4 class="text-slate-300 font-medium group-hover:text-white">MySQL</h4>
+                </div>
+
+                <div
+                    class="skill-card group bg-slate-900/50 p-6 rounded-2xl text-center border border-white/5 hover:bg-slate-800 hover:border-cyan-500/40 hover:shadow-[0_0_20px_rgba(34,211,238,0.15)] transition-all duration-300 transform hover:-translate-y-2 cursor-default opacity-0 translate-y-8">
+                    <i
+                        class="fas fa-fire text-4xl text-orange-400 mb-4 group-hover:scale-110 transition-transform duration-300"></i>
+                    <h4 class="text-slate-300 font-medium group-hover:text-white">Firebase</h4>
+                </div>
+
+                <div
+                    class="skill-card group bg-slate-900/50 p-6 rounded-2xl text-center border border-white/5 hover:bg-slate-800 hover:border-cyan-500/40 hover:shadow-[0_0_20px_rgba(34,211,238,0.15)] transition-all duration-300 transform hover:-translate-y-2 cursor-default opacity-0 translate-y-8">
+                    <i
+                        class="fas fa-pen-nib text-4xl text-purple-500 mb-4 group-hover:scale-110 transition-transform duration-300"></i>
+                    <h4 class="text-slate-300 font-medium group-hover:text-white">Canva</h4>
+                </div>
+
+                <div
+                    class="skill-card group bg-slate-900/50 p-6 rounded-2xl text-center border border-white/5 hover:bg-slate-800 hover:border-cyan-500/40 hover:shadow-[0_0_20px_rgba(34,211,238,0.15)] transition-all duration-300 transform hover:-translate-y-2 cursor-default opacity-0 translate-y-8">
+                    <i
+                        class="fab fa-google text-4xl text-white mb-4 group-hover:scale-110 transition-transform duration-300"></i>
+                    <h4 class="text-slate-300 font-medium group-hover:text-white">Workspace</h4>
+                </div>
+
+                <div
+                    class="skill-card group bg-slate-900/50 p-6 rounded-2xl text-center border border-white/5 hover:bg-slate-800 hover:border-cyan-500/40 hover:shadow-[0_0_20px_rgba(34,211,238,0.15)] transition-all duration-300 transform hover:-translate-y-2 cursor-default opacity-0 translate-y-8">
+                    <i
+                        class="fas fa-server text-4xl text-orange-400 mb-4 group-hover:scale-110 transition-transform duration-300"></i>
+                    <h4 class="text-slate-300 font-medium group-hover:text-white">XAMPP</h4>
+                </div>
+            </div>
+
+            <!-- Computer Skills Subsection -->
+            <div class="mt-16 opacity-0 translate-y-4" id="computer-skills">
+                <h3 class="text-sm font-medium text-slate-500 uppercase tracking-widest mb-6 text-center">Additional
+                    Tools & Operations</h3>
+                <div class="flex flex-wrap justify-center gap-3">
+                    <span
+                        class="px-4 py-2 rounded-full border border-slate-700/50 text-slate-400 text-sm hover:border-cyan-500 hover:text-cyan-300 transition-colors duration-300 bg-slate-900/30 backdrop-blur-sm cursor-default">
+                        MS Word
+                    </span>
+                    <span
+                        class="px-4 py-2 rounded-full border border-slate-700/50 text-slate-400 text-sm hover:border-cyan-500 hover:text-cyan-300 transition-colors duration-300 bg-slate-900/30 backdrop-blur-sm cursor-default">
+                        MS Excel (Basic)
+                    </span>
+                    <span
+                        class="px-4 py-2 rounded-full border border-slate-700/50 text-slate-400 text-sm hover:border-cyan-500 hover:text-cyan-300 transition-colors duration-300 bg-slate-900/30 backdrop-blur-sm cursor-default">
+                        Internet & Email Handling
+                    </span>
+                    <span
+                        class="px-4 py-2 rounded-full border border-slate-700/50 text-slate-400 text-sm hover:border-cyan-500 hover:text-cyan-300 transition-colors duration-300 bg-slate-900/30 backdrop-blur-sm cursor-default">
+                        Basic Computer Operations
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Contact Footer (Holographic Form) -->
+    <section id="contact" class="py-24 relative overflow-hidden">
+        <div class="container mx-auto px-6 max-w-2xl relative z-10">
+            <div
+                class="glass-card p-8 md:p-12 rounded-3xl shadow-2xl relative overflow-hidden group border-t border-cyan-500/20">
+                <!-- Decorative Glow -->
+                <div
+                    class="absolute -top-20 -right-20 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl group-hover:bg-cyan-500/20 transition-colors duration-700 pointer-events-none">
+                </div>
+
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-2 text-center">Let's Connect</h2>
+                <p class="text-slate-400 text-center mb-10">Thane, Maharashtra • Open for Opportunities</p>
+
+                <!-- Contact Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
+                    <!-- Email Card -->
+                    <div id="email-card"
+                        class="bg-white/5 border border-white/10 p-4 rounded-xl cursor-pointer hover:bg-white/10 hover:border-cyan-400/50 hover:-translate-y-1 transition-all relative group">
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="w-10 h-10 rounded-full bg-cyan-500/10 flex items-center justify-center text-cyan-400">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-400 uppercase tracking-wider">Email</p>
+                                <p class="text-sm text-slate-200 font-medium truncate max-w-[150px] md:max-w-full">
+                                    prasadpankaj319...</p>
+                            </div>
+                            <i
+                                class="fas fa-copy text-slate-500 ml-auto group-hover:text-cyan-400 transition-colors"></i>
+                        </div>
+                    </div>
+
+                    <!-- Phone Card -->
+                    <a href="tel:+917709100274"
+                        class="bg-white/5 border border-white/10 p-4 rounded-xl cursor-pointer hover:bg-white/10 hover:border-cyan-400/50 hover:-translate-y-1 transition-all">
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="w-10 h-10 rounded-full bg-green-500/10 flex items-center justify-center text-green-400">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-400 uppercase tracking-wider">Phone</p>
+                                <p class="text-sm text-slate-200 font-medium">+91 7709100274</p>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- LinkedIn -->
+                    <a href="#"
+                        class="bg-white/5 border border-white/10 p-4 rounded-xl cursor-pointer hover:bg-white/10 hover:border-blue-400/50 hover:-translate-y-1 transition-all">
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="w-10 h-10 rounded-full bg-[#0077b5]/10 flex items-center justify-center text-[#0077b5]">
+                                <i class="fab fa-linkedin-in"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-400 uppercase tracking-wider">LinkedIn</p>
+                                <p class="text-sm text-slate-200 font-medium">Connect with Me</p>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- GitHub -->
+                    <a href="#"
+                        class="bg-white/5 border border-white/10 p-4 rounded-xl cursor-pointer hover:bg-white/10 hover:border-slate-400/50 hover:-translate-y-1 transition-all">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white">
+                                <i class="fab fa-github"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-400 uppercase tracking-wider">GitHub</p>
+                                <p class="text-sm text-slate-200 font-medium">View Source Code</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <form action="https://api.web3forms.com/submit" method="POST" id="contact-form" class="space-y-8">
+                    <!-- Access Key -->
+                    <input type="hidden" name="access_key" value="f276f605-24f0-4548-89fd-1e89ef1283b8">
+
+                    <!-- Name Input -->
+                    <div class="relative z-0 w-full group">
+                        <input type="text" name="name" id="name"
+                            class="block py-3 px-0 w-full text-base text-white bg-transparent border-0 border-b-2 border-slate-700 appearance-none focus:outline-none focus:ring-0 focus:border-cyan-400 peer transition-colors"
+                            placeholder=" " required />
+                        <label for="name"
+                            class="peer-focus:font-medium absolute text-sm text-slate-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-cyan-400 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Your
+                            Name</label>
+                    </div>
+
+                    <!-- Email Input -->
+                    <div class="relative z-0 w-full group">
+                        <input type="email" name="email" id="email"
+                            class="block py-3 px-0 w-full text-base text-white bg-transparent border-0 border-b-2 border-slate-700 appearance-none focus:outline-none focus:ring-0 focus:border-cyan-400 peer transition-colors"
+                            placeholder=" " required />
+                        <label for="email"
+                            class="peer-focus:font-medium absolute text-sm text-slate-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-cyan-400 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Email
+                            Address</label>
+                    </div>
+
+                    <!-- Message Input -->
+                    <div class="relative z-0 w-full group">
+                        <textarea name="message" id="message" rows="3"
+                            class="block py-3 px-0 w-full text-base text-white bg-transparent border-0 border-b-2 border-slate-700 appearance-none focus:outline-none focus:ring-0 focus:border-cyan-400 peer transition-colors"
+                            placeholder=" " required></textarea>
+                        <label for="message"
+                            class="peer-focus:font-medium absolute text-sm text-slate-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-cyan-400 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Message</label>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit"
+                        class="w-full py-4 mt-4 font-bold tracking-widest uppercase bg-cyan-500 text-black hover:bg-cyan-400 hover:tracking-[0.2em] transition-all duration-300 rounded-sm shadow-[0_0_20px_rgba(34,211,238,0.4)]">
+                        Send Holo-Message
+                    </button>
+
+                    <!-- Success Message -->
+                    <div id="success-message"
+                        class="hidden text-center mt-4 text-emerald-400 font-medium tracking-wide transition-opacity duration-300 opacity-0">
+                        Message sent successfully! I will get back to you soon.
+                    </div>
+                </form>
+
+                <div class="text-center mt-8 pt-6 border-t border-white/5">
+                    <a href="mailto:prasadpankaj319@gmail.com"
+                        class="text-slate-500 hover:text-cyan-400 transition-colors text-sm font-mono flex items-center justify-center gap-2">
+                        <i class="fas fa-envelope"></i> prasadpankaj319@gmail.com
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 text-center border-t border-white/5 bg-slate-950 text-slate-600 text-sm">
+        <p>&copy; 2026 Pankaj Prasad. Built with <span class="text-cyan-500">Tailwind</span> & <span
+                class="text-fuchsia-500">GSAP</span><span class="text-cyan-500"> With Love</span>.</p>
+    </footer>
+
+    <!-- GSAP Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
+
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
